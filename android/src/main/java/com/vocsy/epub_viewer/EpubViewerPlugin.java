@@ -117,10 +117,10 @@ public class EpubViewerPlugin implements MethodCallHandler, FlutterPlugin, Activ
     }
 
     @Override
-    public void onMethodCall(MethodCall call, Result result) {
+    public void onMethodCall(@NonNull MethodCall call,@NonNull Result result) {
 
         if (call.method.equals("setConfig")) {
-            Map<String, Object> arguments = (Map<String, Object>) call.arguments;
+            Map<?, ?> arguments = (Map<?, ?>) call.arguments;
             String identifier = arguments.get("identifier").toString();
             String themeColor = arguments.get("themeColor").toString();
             String scrollDirection = arguments.get("scrollDirection").toString();
@@ -132,7 +132,7 @@ public class EpubViewerPlugin implements MethodCallHandler, FlutterPlugin, Activ
 
         } else if (call.method.equals("open")) {
 
-            Map<String, Object> arguments = (Map<String, Object>) call.arguments;
+            Map<?, ?> arguments = (Map<?, ?>) call.arguments;
             String bookPath = arguments.get("bookPath").toString();
             String lastLocation = arguments.get("lastLocation").toString();
 
